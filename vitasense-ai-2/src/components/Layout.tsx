@@ -20,11 +20,11 @@ export default function Layout({ children, activeScreen, onNavigate, title }: La
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#fbf9f8_0%,#f4faf7_52%,#fbf9f8_100%)]">
       <Sidebar activeScreen={activeScreen} onNavigate={onNavigate} />
       <main className="md:ml-64 min-h-screen flex flex-col pb-20 md:pb-0">
         <TopBar title={title} onNavigate={onNavigate} />
-        <div className="flex-1 p-6 max-w-[1200px] mx-auto w-full">
+        <div className="flex-1 w-full max-w-[1320px] mx-auto px-4 py-5 sm:px-6 lg:px-8">
           {children}
         </div>
       </main>
@@ -35,7 +35,8 @@ export default function Layout({ children, activeScreen, onNavigate, title }: La
               key={item.id}
               type="button"
               onClick={() => onNavigate(item.id)}
-              className={`flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[10px] font-black uppercase tracking-wide transition-all ${
+              aria-pressed={activeScreen === item.id}
+              className={`flex flex-col items-center justify-center gap-1 rounded-2xl px-1.5 py-2 text-[10px] font-black uppercase tracking-wide transition-all duration-200 active:scale-95 ${
                 activeScreen === item.id
                   ? 'bg-primary text-white shadow-lg shadow-primary/20'
                   : 'text-on-surface-variant hover:bg-surface-container'

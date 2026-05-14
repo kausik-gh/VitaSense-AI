@@ -114,7 +114,7 @@ function SelectField({ label, value, options, onChange }: { label: string; value
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-xl border-none bg-surface-container p-4 font-medium outline-none focus:ring-2 focus:ring-primary"
+        className="w-full rounded-xl border border-outline-variant/20 bg-surface-container p-4 font-medium outline-none transition-all duration-200 hover:border-primary/25 focus:border-primary focus:ring-4 focus:ring-primary/10"
       >
         <option value="">Not selected</option>
         {options.map((option) => (
@@ -132,7 +132,7 @@ function TextAreaField({ label, value, onChange, placeholder }: { label: string;
       <textarea
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="min-h-24 w-full rounded-xl border-none bg-surface-container p-4 font-medium outline-none focus:ring-2 focus:ring-primary"
+        className="min-h-24 w-full rounded-xl border border-outline-variant/20 bg-surface-container p-4 font-medium outline-none transition-all duration-200 hover:border-primary/25 focus:border-primary focus:ring-4 focus:ring-primary/10"
         placeholder={placeholder}
       />
     </label>
@@ -144,7 +144,7 @@ function Section({ title, icon: Icon, children }: { title: string; icon: Element
     <motion.section
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="rounded-3xl bg-white p-8 shadow-xl shadow-black/5 md:p-10"
+      className="premium-panel rounded-3xl p-8 md:p-10"
     >
       <div className="mb-8 flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-container text-on-secondary-container">
@@ -182,11 +182,11 @@ export function OnboardingScreen({ onComplete, onCancel }: OnboardingScreenProps
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="fixed left-0 right-0 top-0 z-50 bg-surface/80 shadow-sm backdrop-blur-md">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#fbf9f8_0%,#f4faf7_52%,#fbf9f8_100%)]">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-outline-variant/20 bg-surface/85 shadow-sm shadow-black/[0.03] backdrop-blur-xl">
         <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-6">
           <span className="text-xl font-black text-primary">VitaSense AI</span>
-          <button onClick={onCancel} className="flex items-center gap-2 text-on-surface-variant transition-colors hover:text-primary">
+          <button onClick={onCancel} className="flex items-center gap-2 rounded-full px-3 py-2 text-on-surface-variant transition-all duration-200 hover:bg-primary/5 hover:text-primary active:scale-[0.98]">
             <X className="h-5 w-5" />
             <span className="hidden text-xs font-bold md:inline">Save & Exit</span>
           </button>
@@ -251,7 +251,7 @@ export function OnboardingScreen({ onComplete, onCancel }: OnboardingScreenProps
               type="button"
               onClick={handleComplete}
               disabled={isSaving}
-              className="flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all hover:opacity-90 disabled:opacity-60"
+              className="flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-black text-white shadow-2xl shadow-primary/20 transition-all duration-200 hover:bg-[#08513e] hover:shadow-primary/25 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSaving ? <Loader2 className="h-6 w-6 animate-spin" /> : 'Complete Setup'}
               <ArrowRight className="h-6 w-6" />

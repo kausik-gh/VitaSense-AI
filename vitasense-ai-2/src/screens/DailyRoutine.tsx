@@ -198,7 +198,7 @@ function TextField({ label, value, onChange, placeholder }: FieldProps) {
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
-        className="h-12 w-full rounded-2xl border border-outline-variant/30 bg-white px-4 text-sm font-semibold text-on-surface outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
+        className="h-12 w-full rounded-2xl border border-outline-variant/30 bg-white/90 px-4 text-sm font-semibold text-on-surface shadow-sm shadow-black/[0.02] outline-none transition-all duration-200 hover:border-primary/25 focus:border-primary focus:ring-4 focus:ring-primary/10"
       />
     </label>
   );
@@ -212,7 +212,7 @@ function TextAreaField({ label, value, onChange, placeholder }: FieldProps) {
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
-        className="min-h-28 w-full rounded-2xl border border-outline-variant/30 bg-white p-4 text-sm font-semibold text-on-surface outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
+        className="min-h-28 w-full rounded-2xl border border-outline-variant/30 bg-white/90 p-4 text-sm font-semibold text-on-surface shadow-sm shadow-black/[0.02] outline-none transition-all duration-200 hover:border-primary/25 focus:border-primary focus:ring-4 focus:ring-primary/10"
       />
     </label>
   );
@@ -225,7 +225,7 @@ function SelectField({ label, value, onChange, options }: FieldProps & { options
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-12 w-full rounded-2xl border border-outline-variant/30 bg-white px-4 text-sm font-semibold text-on-surface outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
+        className="h-12 w-full rounded-2xl border border-outline-variant/30 bg-white/90 px-4 text-sm font-semibold text-on-surface shadow-sm shadow-black/[0.02] outline-none transition-all duration-200 hover:border-primary/25 focus:border-primary focus:ring-4 focus:ring-primary/10"
       >
         <option value="">Not answered</option>
         {options.map((option) => (
@@ -244,7 +244,7 @@ function BooleanSelect({ label, value, onChange }: FieldProps) {
 
 function LogSection({ title, icon: Icon, children }: { title: string; icon: ElementType; children: ReactNode }) {
   return (
-    <section className="rounded-[2rem] border border-outline-variant/25 bg-white p-6 shadow-xl shadow-black/5">
+    <section className="premium-panel rounded-[2rem] p-6">
       <div className="mb-6 flex items-center gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
           <Icon className="h-5 w-5" />
@@ -329,7 +329,7 @@ export function DailyRoutineScreen() {
           type="button"
           onClick={handleSave}
           disabled={isSaving || isLoading}
-          className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-primary px-6 text-sm font-black text-white shadow-xl shadow-primary/20 transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-primary px-6 text-sm font-black text-white shadow-xl shadow-primary/20 transition-all duration-200 hover:bg-[#08513e] hover:shadow-2xl hover:shadow-primary/25 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSaving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
           Save {selectedDate}
@@ -338,7 +338,7 @@ export function DailyRoutineScreen() {
 
       <div className="grid grid-cols-1 gap-8 xl:grid-cols-[360px_1fr]">
         <aside className="space-y-6">
-          <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-black/5">
+          <section className="premium-panel rounded-[2rem] p-6">
             <div className="mb-8 flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-black text-on-surface">{monthLabel}</h2>
@@ -369,7 +369,7 @@ export function DailyRoutineScreen() {
                     key={day}
                     type="button"
                     onClick={() => setSelectedDay(day)}
-                    className={`aspect-square rounded-2xl text-sm font-black transition-all ${
+                    className={`aspect-square rounded-2xl text-sm font-black transition-all duration-200 active:scale-95 ${
                       isSelected ? 'bg-primary text-white shadow-xl shadow-primary/20' : 'bg-surface-container/60 text-on-surface hover:bg-primary/10 hover:text-primary'
                     }`}
                   >

@@ -1,4 +1,4 @@
-import { 
+import {
   LayoutDashboard, 
   CalendarCheck, 
   MessageSquare, 
@@ -7,9 +7,7 @@ import {
   HelpCircle, 
   LogOut, 
   ChevronRight,
-  ShieldCheck
 } from 'lucide-react';
-import { motion } from 'motion/react';
 
 interface SidebarProps {
   activeScreen: string;
@@ -26,9 +24,10 @@ export default function Sidebar({ activeScreen, onNavigate }: SidebarProps) {
   ];
 
   return (
-    <aside className="hidden md:flex flex-col h-screen fixed left-0 top-0 py-10 z-40 bg-zinc-900 w-64 rounded-r-3xl">
-      <div className="px-6 mb-16">
-        <h1 className="text-xl font-black text-[#aff0d6]">VitaSense AI</h1>
+    <aside className="fixed left-0 top-0 z-40 hidden h-screen w-64 flex-col border-r border-white/10 bg-[#0f1714] py-8 shadow-2xl shadow-black/25 md:flex">
+      <div className="mb-12 px-6">
+        <h1 className="text-xl font-black tracking-tight text-[#aff0d6]">VitaSense AI</h1>
+        <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-white/30">Predictive health OS</p>
       </div>
 
       <nav className="flex-1 space-y-2">
@@ -36,20 +35,23 @@ export default function Sidebar({ activeScreen, onNavigate }: SidebarProps) {
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
-            className={`w-[95%] mx-auto flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
+            aria-pressed={activeScreen === item.id}
+            className={`group relative mx-auto flex w-[88%] items-center rounded-2xl px-4 py-3 transition-all duration-200 active:scale-[0.98] ${
               activeScreen === item.id 
-                ? 'bg-[#7ab9a1] text-[#004a38] font-bold' 
-                : 'text-zinc-400 hover:bg-zinc-800 hover:text-white'
+                ? 'bg-[#aff0d6] text-[#002117] shadow-xl shadow-[#aff0d6]/10' 
+                : 'text-zinc-400 hover:bg-white/7 hover:text-white'
             }`}
           >
+            {activeScreen === item.id && <span className="absolute -left-3 h-6 w-1 rounded-full bg-[#aff0d6]" />}
             <item.icon className="mr-3 w-5 h-5" />
-            <span className="text-sm font-medium">{item.label}</span>
+            <span className="text-sm font-bold">{item.label}</span>
+            <ChevronRight className={`ml-auto h-4 w-4 transition-all duration-200 ${activeScreen === item.id ? 'opacity-70' : 'opacity-0 group-hover:translate-x-0.5 group-hover:opacity-60'}`} />
           </button>
         ))}
       </nav>
 
       <div className="px-6 mt-auto space-y-4">
-        <div className="p-4 bg-zinc-800/50 rounded-2xl border border-zinc-700/50">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-xl shadow-black/10">
           <div className="flex items-center gap-3 mb-3">
             <img 
               alt="Samantha W." 
@@ -63,20 +65,20 @@ export default function Sidebar({ activeScreen, onNavigate }: SidebarProps) {
           </div>
           <button 
             onClick={() => onNavigate('onboarding')}
-            className="w-full py-2 px-4 bg-[#2a6955] text-white rounded-lg text-[10px] font-bold hover:opacity-90 transition-all"
+            className="w-full rounded-xl bg-[#2a6955] px-4 py-2.5 text-[10px] font-black uppercase tracking-wide text-white transition-all duration-200 hover:bg-[#347c65] active:scale-[0.98]"
           >
             Check your condition
           </button>
         </div>
 
         <div className="space-y-1">
-          <button className="w-full text-zinc-400 flex items-center px-4 py-2 hover:text-white transition-all">
+          <button className="flex w-full items-center rounded-xl px-4 py-2 text-zinc-400 transition-all duration-200 hover:bg-white/7 hover:text-white">
             <HelpCircle className="mr-3 w-4 h-4" />
             <span className="text-xs font-medium">Help</span>
           </button>
           <button 
             onClick={() => onNavigate('welcome')}
-            className="w-full text-zinc-400 flex items-center px-4 py-2 hover:text-white transition-all"
+            className="flex w-full items-center rounded-xl px-4 py-2 text-zinc-400 transition-all duration-200 hover:bg-white/7 hover:text-white"
           >
             <LogOut className="mr-3 w-4 h-4" />
             <span className="text-xs font-medium">Logout</span>

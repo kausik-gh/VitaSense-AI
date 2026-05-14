@@ -17,8 +17,8 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
     >
       {/* Greeting Area */}
       <section>
-        <h2 className="text-4xl font-bold text-on-background">Good morning, Samantha</h2>
-        <p className="text-lg text-primary/80 font-medium mt-1 uppercase tracking-wide">Thursday, 14 May 2026</p>
+        <h2 className="text-3xl font-black tracking-tight text-on-background sm:text-4xl">Good morning, Samantha</h2>
+        <p className="mt-1 text-sm font-black uppercase tracking-wide text-primary/75 sm:text-base">Thursday, 14 May 2026</p>
       </section>
 
       <WellnessForecastHero />
@@ -32,17 +32,17 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
         <div className="lg:col-span-8 space-y-8">
           
           {/* Onboarding Call to Action */}
-          <div className="relative overflow-hidden bg-white rounded-[2rem] p-8 shadow-xl shadow-black/5">
+          <div className="premium-panel premium-interactive relative overflow-hidden rounded-[2rem] p-8">
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1 text-center md:text-left">
-                <span className="bg-primary/10 text-primary font-bold text-xs px-4 py-1 rounded-full inline-block mb-4">Action Required</span>
+                <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-black text-primary">Action Required</span>
                 <h3 className="text-2xl font-bold text-on-background mb-4 leading-tight">Complete your profile to sharpen tomorrow’s forecast</h3>
                 <p className="text-on-surface-variant font-medium mb-8 max-w-md mx-auto md:mx-0 opacity-80">
                   VitaSense can personalize predictions more precisely when your lifestyle, allergy, and recovery context are up to date.
                 </p>
                 <button 
                   onClick={() => onAction('onboarding')}
-                  className="bg-primary text-white font-bold text-sm px-7 py-3 rounded-full hover:scale-105 transition-transform shadow-xl shadow-primary/20"
+                  className="rounded-full bg-primary px-7 py-3 text-sm font-black text-white shadow-xl shadow-primary/20 transition-all duration-200 hover:bg-[#08513e] hover:shadow-2xl hover:shadow-primary/25 active:scale-[0.98]"
                 >
                   Update Profile
                 </button>
@@ -51,6 +51,7 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
                 <div className="bg-surface-container rounded-2xl p-3 ring-8 ring-white/50">
                   <img 
                     alt="Health Dashboard" 
+                    loading="lazy"
                     className="w-full h-auto rounded-xl" 
                     src="https://images.unsplash.com/photo-1551288049-bbda38a10ad5?w=400&auto=format&fit=crop&q=80" 
                   />
@@ -61,7 +62,7 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
 
           {/* Secondary Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-[2rem] flex items-center gap-6 shadow-xl shadow-black/5 border border-white/50">
+            <div className="premium-panel premium-interactive flex items-center gap-6 rounded-[2rem] p-8">
               <div className="w-14 h-14 bg-[#aff0d6]/30 rounded-2xl flex items-center justify-center text-primary">
                 <Heart className="w-8 h-8 fill-primary" />
               </div>
@@ -70,7 +71,7 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
                 <p className="text-2xl font-bold text-on-background">-- bpm</p>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-[2rem] flex items-center gap-6 shadow-xl shadow-black/5 border border-white/50">
+            <div className="premium-panel premium-interactive flex items-center gap-6 rounded-[2rem] p-8">
               <div className="w-14 h-14 bg-secondary-container/30 rounded-2xl flex items-center justify-center text-secondary">
                 <Moon className="w-8 h-8 fill-secondary" />
               </div>
@@ -84,7 +85,7 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
 
         {/* Right Content (4 cols) */}
         <aside className="lg:col-span-4 space-y-8">
-          <div className="bg-white rounded-[2rem] p-8 shadow-xl shadow-black/5">
+          <div className="premium-panel rounded-[2rem] p-8">
             <div className="flex justify-between items-center mb-6">
               <h4 className="text-xl font-bold text-on-background">Upcoming Appointments</h4>
               <MoreHorizontal className="w-5 h-5 text-on-surface-variant cursor-pointer" />
@@ -100,8 +101,8 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
               <div className="flex justify-between items-center px-2 mb-6">
                 <span className="text-sm font-black">May 2026</span>
                 <div className="flex gap-4">
-                  <ChevronLeft className="w-4 h-4 cursor-pointer hover:text-primary transition-colors" />
-                  <ChevronRight className="w-4 h-4 cursor-pointer hover:text-primary transition-colors" />
+                  <ChevronLeft className="h-4 w-4 cursor-pointer transition-colors hover:text-primary" />
+                  <ChevronRight className="h-4 w-4 cursor-pointer transition-colors hover:text-primary" />
                 </div>
               </div>
               <div className="grid grid-cols-7 gap-2 text-center text-[10px] font-bold opacity-30 uppercase tracking-tighter mb-4">
@@ -120,7 +121,7 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
 
             {/* List */}
             <div className="space-y-4">
-              <div className="flex items-center gap-4 p-4 bg-surface rounded-2xl border border-surface-container hover:border-primary-container transition-all cursor-pointer group">
+              <div className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-surface-container bg-surface p-4 transition-all duration-200 hover:border-primary-container hover:bg-primary/5">
                 <div className="w-12 h-12 bg-secondary-fixed rounded-full flex items-center justify-center text-secondary">
                   <Brain className="w-6 h-6" />
                 </div>
@@ -133,7 +134,7 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
             </div>
           </div>
 
-          <div className="bg-on-background rounded-[2.5rem] p-8 relative overflow-hidden group">
+          <div className="group relative overflow-hidden rounded-[2.5rem] bg-on-background p-8 shadow-2xl shadow-black/15">
             <div className="relative z-10 text-white">
               <h4 className="text-xl font-bold mb-2">Daily progress</h4>
               <p className="text-xs text-surface-variant opacity-70 mb-8 font-medium">Keep improving the quality of your health</p>
@@ -148,7 +149,6 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
                 </div>
               </div>
             </div>
-            <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
           </div>
         </aside>
       </div>
