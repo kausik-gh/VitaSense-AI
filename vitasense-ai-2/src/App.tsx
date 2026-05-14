@@ -5,6 +5,7 @@ import { OnboardingScreen } from './screens/Onboarding';
 import { DailyRoutineScreen } from './screens/DailyRoutine';
 import { ProfileScreen } from './screens/Profile';
 import { ChatbotScreen } from './screens/Chatbot';
+import { AreaHealthMapScreen } from './screens/AreaHealthMap';
 import Layout from './components/Layout';
 import { AnimatePresence } from 'motion/react';
 
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <Layout activeScreen={currentScreen} onNavigate={handleNavigate} title={
       currentScreen === 'routine' ? 'Daily Routine' : 
+      currentScreen === 'calendar' ? 'Area Health Map' :
       currentScreen === 'chatbot' ? 'Chatbot' :
       currentScreen === 'profile' ? 'Profile' : 
       'VitaSense AI'
@@ -37,11 +39,7 @@ export default function App() {
         {currentScreen === 'routine' && <DailyRoutineScreen />}
         {currentScreen === 'profile' && <ProfileScreen />}
         {currentScreen === 'chatbot' && <ChatbotScreen />}
-        {currentScreen === 'calendar' && (
-          <div className="flex items-center justify-center h-full">
-            <p className="text-on-surface-variant font-bold opacity-30">Calendar View - Coming Soon</p>
-          </div>
-        )}
+        {currentScreen === 'calendar' && <AreaHealthMapScreen />}
       </AnimatePresence>
     </Layout>
   );

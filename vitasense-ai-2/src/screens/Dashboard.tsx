@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Heart, Moon, ChevronRight, MoreHorizontal, ChevronLeft, Brain } from 'lucide-react';
 import { WellnessForecastHero } from '../components/WellnessForecastHero';
+import { AreaHealthIntelligenceMap } from '../components/AreaHealthIntelligenceMap';
 
 interface DashboardScreenProps {
   onAction: (action: string) => void;
@@ -21,6 +22,8 @@ export function DashboardScreen({ onAction }: DashboardScreenProps) {
       </section>
 
       <WellnessForecastHero />
+
+      <AreaHealthIntelligenceMap compact />
 
       {/* Main Layout Bento Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

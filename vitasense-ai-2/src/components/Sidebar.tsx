@@ -2,7 +2,7 @@ import {
   LayoutDashboard, 
   CalendarCheck, 
   MessageSquare, 
-  CalendarDays, 
+  Map,
   UserCircle, 
   HelpCircle, 
   LogOut, 
@@ -21,7 +21,7 @@ export default function Sidebar({ activeScreen, onNavigate }: SidebarProps) {
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'routine', label: 'Daily Routine', icon: CalendarCheck },
     { id: 'chatbot', label: 'Chatbot', icon: MessageSquare },
-    { id: 'calendar', label: 'Calendar', icon: CalendarDays },
+    { id: 'calendar', label: 'Area Map', icon: Map },
     { id: 'profile', label: 'Profile', icon: UserCircle },
   ];
 
